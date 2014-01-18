@@ -1,7 +1,7 @@
-import sys
 import urllib2
 from bs4 import BeautifulSoup
 import re
+import argparse
 
 
 def get_all_pdfs(html_content):
@@ -40,8 +40,16 @@ def get_internet_files(urls, target_location):
 
 
 if __name__ == "__main__":
-    html_file = sys.argv[1]
-    target_location = sys.argv[2]
+    parser = argparse.ArgumentParser(
+        description="Download all linked pdf files in the given document")
+    parser.add_argument(
+        'source', help="the source html document containing all the links")
+    parser.add_argument(
+        'destination',
+        help="the destination folder that pdf should be downloaded to")
+    args = parser.parse_args()
+    html_file = args.source
+    target_location = args.destination
 
     with open(html_file, 'r') as html_content:
         pdf_links = get_all_pdfs(html_content)
