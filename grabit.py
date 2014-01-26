@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import urllib2
 from bs4 import BeautifulSoup
 import re
@@ -35,7 +37,7 @@ def get_internet_files(urls, target_location):
     print "Failed downloaded:"
     print '\n'.join(failed_downloads)
 
-    print "Summary: successful count is {}\nfailed count is "\
+    print "Summary:\nSuccessful count is {}\nFailed count is "\
         "{}".format(len(successful_downloads), len(failed_downloads))
 
 
