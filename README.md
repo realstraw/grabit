@@ -7,3 +7,8 @@ Usage
 -----
 
     ./grabit the_html_document.html /path/to/download
+    
+Install Dependencies
+--------------------
+
+    pip install -r requirements.txt
